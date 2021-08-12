@@ -1,0 +1,18 @@
+.card-text{
+    color:darkblue;
+}
+.card-title{
+    color: palevioletred;
+}
+.w3-wide{
+    text-align: inherit;
+    color: brown;
+}
+.w3-opacity{
+    text-align: right;
+    color:violet;
+}
+.container , h2{
+    text-align: left;
+    color: green;
+}
