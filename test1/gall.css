@@ -13,9 +13,11 @@
     margin-top: 8px;
     horizontal-align: middle;
   }
-  h1{
+  .header {
     text-align: center;
-    color: lightgreen;
+    background: hsl(168, 96%, 48%);
+    color: white;
+    font-size: 30px;
   }
   h2{
     text-align: center;
