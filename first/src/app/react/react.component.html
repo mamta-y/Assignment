@@ -1,0 +1,166 @@
+<p>react works!</p>
+<div class="container mt-4">
+  
+    <form [formGroup] = "checkInForm" (ngSubmit)="postData()">
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Firstname</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputEmail3" 
+              formControlName ="fname">
+              <span *ngIf= " checkInForm.get('fname').touched && checkInForm.get('fname').hasError('required')">
+                Enter firstname
+              </span>
+              <span *ngIf= " checkInForm.get('fname').touched && checkInForm.get('fname').hasError('minlength')">minimum length should be 3 characters</span>
+              <span *ngIf= " checkInForm.get('fname').touched && checkInForm.get('fname').hasError('maxlength')">
+               maximum length is 10
+              </span> 
+            </div>
+          </div><br>
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Lastname</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputEmail3"  
+              formControlName ="lname">
+              <span *ngIf= " checkInForm.get('lname').touched && checkInForm.get('lname').hasError('required')">
+                Enter Lastname
+              </span>
+              <span *ngIf= " checkInForm.get('lname').touched && checkInForm.get('lname').hasError('minlength')">
+               Enter valid Lastname
+              </span>
+              <span *ngIf= " checkInForm.get('lname').touched && checkInForm.get('lname').hasError('maxlength')">
+                maximum length is 10
+               </span> 
+               <span *ngIf= " checkInForm.get('lname').touched && checkInForm.get('lname').hasError('lname')">
+                 <div [hidden]="!lname.errors.pattern">
+            only characters r allowed
+                 </div>
+               </span> 
+            </div>
+          </div><br>
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">DOB</label>
+            <div class="col-sm-10">
+              <input type="date" class="form-control" id="inputEmail3"
+              formControlName ="DOB">
+              <span *ngIf= " checkInForm.get('DOB').touched && checkInForm.get('DOB').hasError('required')">
+                Enter date of birth
+              </span>
+              <span *ngIf= " checkInForm.get('DOB').touched && checkInForm.get('DOB').hasError('DOB')">
+               Enter valid date of birth
+              </span>
+            </div>
+          </div><br>
+      <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="inputEmail3"
+          formControlName ="emailAddr">
+          <span *ngIf= " checkInForm.get('emailAddr').touched && checkInForm.get('emailAddr').hasError('required')">
+            Enter email address
+          </span>
+          <span *ngIf= " checkInForm.get('emailAddr').touched && checkInForm.get('emailAddr').hasError('email')">
+           Enter valid email address
+          </span>
+        </div>
+      </div> <br>
+      <div class="form-group row">
+        <label for="inputPassword3" class="col-sm-2 col-form-label">Phone Number</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputPassword3" maxlength="10" formControlName ="phn">
+        </div>
+        <span class="offset-md-2" *ngIf= " checkInForm.get('phn').touched && checkInForm.get('phn').hasError('required')">
+          Enter Phone Number
+        </span>
+      </div><br>
+      <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Address</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputEmail3"
+          formControlName ="addr">
+          <span *ngIf= " checkInForm.get('addr').touched && checkInForm.get('addr').hasError('required')">
+            Enter address
+          </span>
+          <span *ngIf= " checkInForm.get('addr').touched && checkInForm.get('addr').hasError('addr')">
+           Enter valid address
+          </span>
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label for="inputPassword3" class="col-sm-2 col-form-label">Aadhar Number</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputPassword3" formControlName ="ad">
+        </div>
+        <span class="offset-md-2" *ngIf= " checkInForm.get('ad').touched && checkInForm.get('ad').hasError('required')">
+          Enter Aadhar Number
+        </span>
+      </div><br>
+      <div class="form-group row">
+        <label for="inputPassword3" class="col-sm-2 col-form-label">Pincode</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputPassword3"  formControlName ="pin">
+        </div>
+        <span class="offset-md-2" *ngIf= " checkInForm.get('pin').touched && checkInForm.get('pin').hasError('required')">
+          Enter Pincode
+        </span>
+        <span *ngIf= " checkInForm.get('pin').touched && checkInForm.get('pin').hasError('maxlength')">
+          maximum length is 6
+         </span>
+      </div><br>
+      <div class="form-group row">
+        <label for="inputPassword3" class="col-sm-2 col-form-label">Country</label>
+        <div class="col-sm-10">
+            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" formControlName="country">
+                <option selected>Choose...</option>
+                <option value="1">USA</option>
+                <option value="2">India</option>
+                <option value="3">Australia</option>
+              </select>
+             
+        </div>
+        <span class="offset-md-2" *ngIf= " checkInForm.get('country').touched && checkInForm.get('country').hasError('required')">
+        select country
+        </span>
+      </div><br>
+      <div class="form-group row">
+        <label for="inputPassword3" class="col-sm-2 col-form-label">State</label>
+        <div class="col-sm-10">
+            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" formControlName="state">
+                <option selected>Choose...</option>
+                <option value="1">Delhi</option>
+                <option value="2">Uttar pradesh</option>
+                <option value="3">Punjab</option>
+              </select>
+        </div>
+        <span class="offset-md-2" *ngIf= " checkInForm.get('state').touched && checkInForm.get('state').hasError('required')">
+        select country
+        </span>
+      </div><br>
+     
+     
+      <div class="form-group row">-->
+       <!---<div class="col-sm-10 offset-sm-2"> -->
+        <div class="d-grid gap-2 col-2 mx-auto">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" formControlName ="terms">
+            <label class="form-check-label" for="gridCheck1">
+             terms & conditions
+            </label>
+          </div>
+        </div>
+      </div><br>
+  
+     
+  
+     <!--- <div class="form-group row">
+        <div class="d-grid gap-2 d-md-block">
+          <button type="submit" class="btn btn-primary"
+          [disabled]="!checkInForm.valid">Sign in</button>
+        <button type="reset" class="btn btn-danger"
+          (click) = "resetForm()">Clear</button> -->
+          <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-primary" type="button" [disabled]="!checkInForm.valid">Sign in</button>
+            <button class="btn btn-danger" type="reset"  (click) = "resetForm()">Reset</button>
+          </div>
+       
+    </form> 
+   

@@ -1,0 +1,49 @@
+
+<marquee width="100%" direction="right" height="30px" style="background-color: lightgreen;">
+  This is a best place for getting latest and updated news...
+  </marquee>
+
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThAYP7e7bFDfYE4Q_IDtAFiBLBDa_oPK7t-A&usqp=CAU" class="d-block w-100" width="1100" height="400" alt="...">
+    </div>
+   
+  </div>
+ 
+</div>
+
+
+
+
+<form action="">
+  <div class="form-group">
+    <div class="box">
+    <div class="container-1">
+    <input type="text" class="form-control mr-sm-2" name="searchText" placeholder="search here.." [(ngModel)]="searchText">
+  </div>
+  </div>
+  </div>
+</form>
+
+<div class="wrapper" style="margin-left: 40px;">
+    <div class="row">
+       
+      <div class="col-md-3" *ngFor = "let a of articles |filter:searchText">
+        <div class="card" style="width: 19rem; height: 40rem; margin-top: 30px; border: 1px solid lightblue; ">
+          <img class="card-img-top" style="width: 19rem; height: 12rem;"
+          [src]="a.urlToImage"
+          [alt]="a.title"
+          height="150px"
+          width="100%">
+          <div class="card-body">
+           <h5 class="card-title" style="text-align: justify;">{{ a.title }}</h5>
+           <p  appHover class="card-text" style="text-align: justify;">{{ a.description }}</p>
+           <p class="card-text">Author:{{ a.author }}</p> 
+          </div>
+         <div class="card-footer">
+             <a [href]="a.url" class="btn btn-success" target="blank">Read More</a>
+         </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,28 @@
+<p>newz works!</p>
+<h1>My World News Aggregator!</h1>
+<div class="text-center mt-5" *ngIf= "isLoading">
+    <app-spinner></app-spinner>
+</div>
+<form [formGroup]="countryForm" class="form-container">
+    <input type="text" class="input" formControlName="country">
+    <div>
+        <button  (click)="getNews()" class="btn btn-success">Get News</button>
+    </div>
+</form>
+<div class="wrapper">
+    <div class="row">
+        
+    <div class="col-md-4" *ngFor="let article of articles.articles" >
+        <div class="card mb-2 mt-4">
+            <div class="card-body" >
+            <div class="title">{{article.title}}</div>
+            <img class="image" src="{{article.urlToImage}}" height="150px" width="100%" style="border: solid 1px black;">
+        </div>
+            <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color: orange;">{{article.description}}</p>
+            <div class="card-footer">
+            <button  class="btn " (click)="openArticle(article.url)" color="primary">Read More</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

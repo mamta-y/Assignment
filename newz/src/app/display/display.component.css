@@ -1,0 +1,16 @@
+.box { 
+    margin: 20px auto;
+    width: 100%;
+    max-width: 150px;
+    height: 40px; 
+    text-align: center; 
+  }
+  
+  .box .container-1 input{
+     width: 100%;
+  }
+  img:hover{
+     -webkit-filter: blur(3px);
+     filter: blur(3px);
+
+  }

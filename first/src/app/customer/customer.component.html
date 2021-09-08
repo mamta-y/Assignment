@@ -1,0 +1,56 @@
+<p>customer works!</p>
+<ul>
+    <li *ngFor ='let contact  of contacts'>
+        {{ contact.id }} {{ contact.cname }} {{ contact.clname}}
+    </li>
+</ul> 
+<!--<div *ngIf ='msgTrue'>contact added successfully</div>
+<button (click)="addNewContact()">add contact</button>-->
+<!--<table class="table table-bordered" >
+    <thead>
+        <tr>
+            <th>Roll-No.</th>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Section</th>
+            <th>Grade</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor ='let student of students' >
+            <td>{{ student.studId }} </td>
+            <td>{{ student.studName}}</td>
+            <td>{{ student.studclass}}</td>
+            <td>{{ student.studSection}}</td>
+            <td>{{ student.studGrade}}</td>
+            
+        </tr>
+    </tbody>
+</table>-->
+
+
+<div *ngIf ='msgTrue'>contact added successfully</div>
+<div class="container mt-4">
+<form #contactsForm ="ngForm" (ngSubmit) ="addNewContact(contactsForm)">
+    <div class="mb-3">
+      <label for="id" class="form-label">contact id</label>
+      <input type="id" class="form-control" id="id" aria-describedby="emailHelp" name="id" ngModel #idField="ngModel">
+     
+    </div>
+    <div class="mb-3">
+      <label for="cname" class="form-label">Firstname</label>
+      <input type="cname" class="form-control" id="cname" name="cname" ngModel >
+    </div>
+    <div class="mb-3">
+        <label for="clname" class="form-label">Lastname</label>
+        <input type="clname" class="form-control" id="clname" name="clname" ngModel >
+      </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<button (click) ="updateContact(7)">update</button> 
+
+Enter the id of contact to be deleted<input type="text" [(ngModel)] = "idStorage">
+<button (click) = "remove()">Delete</button>
+

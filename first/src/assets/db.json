@@ -1,0 +1,51 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "cname": "mamta",
+      "clname": "yadav"
+    },
+    {
+      "id": 2,
+      "cname": "ajali",
+      "clname": "singh"
+    },
+    {
+      "id": 3,
+      "cname": "chinnu",
+      "clname": "thomas"
+    },
+    {
+      "id": 3,
+      "cname": "bhavana",
+      "clname": "chauhan"
+    },
+    {
+      "id": 5,
+      "cname": "komal",
+      "clname": "yadav"
+    },
+    {
+      "id": "8",
+      "cname": "sid",
+      "clname": "singh"
+    },
+    {
+      "id": "7",
+      "cname": "juhi",
+      "clname": "singh"
+    },
+    {
+      "id": "11",
+      "cname": "karan",
+      "clname": "kapor"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "name": "p1",
+      "body": "hello"
+    }
+  ]
+}

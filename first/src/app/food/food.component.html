@@ -1,0 +1,57 @@
+<!--<p>food works!</p>
+<ul>
+    <li *ngFor ='let item  of items'>
+        {{ item.id }} {{ item.names }} {{ item.price }}
+    </li>
+</ul> -->
+
+   
+
+<table class="table table-bordered" >
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor ='let item of items' >
+            <td>{{ item.id }} </td>
+            <td>{{ item.names }}</td>
+            <td>{{ item.price}}</td>
+            
+            
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+<div *ngIf ='msgTrue'> added successfully</div>
+
+<div class="container mt-4">
+    <form #contactsForm ="ngForm" (ngSubmit) ="addNewContact(contactsForm)">
+        <div class="mb-3">
+          <label for="id" class="form-label"> Id</label>
+          <input type="id" class="form-control" id="id" aria-describedby="emailHelp" name="id" ngModel #idField="ngModel">
+         
+        </div>
+        <div class="mb-3">
+          <label for="names" class="form-label">name</label>
+          <input type="text" class="form-control" id="names" name="names"  #nameField ngModel >
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">price</label>
+            <input type="number" class="form-control" id="price" name="price" #priceField ngModel >
+          </div>
+          <button type="submit" class="btn btn-primary">add order</button><br>
+          
+        
+      </form>
+    </div> 
+  <!---  Enter the id  to be deleted<input type="text" [(ngModel)] = "idStorage">
+    <button (click) = "removeitem()">Delete</button>-->
+            

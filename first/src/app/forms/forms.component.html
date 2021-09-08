@@ -1,0 +1,110 @@
+<p>forms works!</p>
+<h2 style="text-align: center ; color: darkblue;">Registration Form</h2>
+
+
+<div class="container mt-4">
+  <form #signInForm = "ngForm" (ngSubmit) = "loginUser(signInForm)">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+      <label for="email" class="form-label"> Firstname</label>
+      <input type="text" class="form-control" id="fname" aria-describedby="emailHelp" name="fname" pattern="^[a-zA-Z]+$"   ngModel required maxlength="7" minlength="1" #nameField="ngModel">
+      <div id="smallField"
+      *ngIf = "nameField.touched && !nameField.valid">Enter Firstname</div>
+      <div *ngIf="!nameField?.valid && (nameField?.dirty || nameField?.touched)" class="error">
+        <div *ngIf="nameField.errors.pattern">
+          Only characters are allowed
+        </div>
+      </div>
+    </div> </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+      <label for="email" class="form-label"> LastName</label>
+      <input type="text" class="form-control" id="" aria-describedby="emailHelp" name="lname" ngModel required maxlength="10" minlength="8" #lnameField = "ngModel" >
+      <div class="form-text text-muted" id="smallField"
+      *ngIf = "lnameField.touched && !lnameField.valid">Enter LastName</div>
+    </div></div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+      <label for="" class="form-label"> DOB</label>
+      <input type="date" class="form-control" id=""   name="dobField" ngModel required #dobField = "ngModel" >
+      <div class="form-text text-muted" id="smallField"
+      *ngIf = "dobField.touched && !dobField.valid">Enter DOB</div>
+    </div> </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email" aria-describedby="" name="email" ngModel required #emailField = "ngModel" email>
+      <div class="form-text text-muted" id="smallField"
+      *ngIf = "emailField.touched && !emailField.valid">Enter email address</div>
+    </div> </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+      <label for="" class="form-label"> Phone.No</label>
+      <input type="tel" class="form-control"  id="phone" aria-describedby=""  pattern = "^((\\+91-?)|0)?[0-9]{10}$" name="phn" maxlength="12" ngModel required #phnField ="ngModel" >
+      <div  id="smallField"
+      *ngIf = "phnField.touched && !phnField.valid">Enter phone number</div>
+      <div *ngIf="!phnField?.valid && (phnField?.dirty || phnField?.touched)" class="error">
+        <div *ngIf="phnField.errors.pattern">
+          mobile number not valid
+        </div>
+    </div> </div>
+
+    <div class="form-group">
+      <label for="inputAddress">Address</label>
+      <input type="text" class="form-control" id="inputAddress" name="addressField"ngModel required #addressField= "ngModel">
+      <div class="form-text text-muted" id="smallField"
+      *ngIf = "addressField.touched && !addressField.valid">enter addreess</div>
+  </div>
+    
+    <div class="form-row">
+      <div class="form-group col-md-6">
+      <label for="" class="form-label">Aadhar No.</label>
+      <input type="text" class="form-control" id="" aria-describedby="" name="adField" ngModel required #adField = "ngModel" >
+      <div class="form-text text-muted" id="adhar"
+      *ngIf = "adField.touched && !adField.valid">Enter Aadhar No.  </div>
+    </div></div><br>
+    <label for="">Gender</label> <br><br>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+        <label class="form-check-label" for="gridRadios1">
+          Male
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+        <label class="form-check-label" for="gridRadios2">
+          Female
+        </label>
+      </div> <br>
+      <form class="form-inline">
+        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Country</label>
+        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+          <option selected>Choose...</option>
+          <option value="1">USA</option>
+          <option value="2">India</option>
+          <option value="3">Australia</option>
+        </select>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+      <label for="Pincode" class="form-label">Pincode</label>
+      <input type="text" class="form-control" id="Pincode" aria-describedby="" name="Pincode"  pattern = "^[1-9][0-9]{5}$ " maxlength="6" ngModel required #pincodeField = "ngModel" >
+      <div  id="smallField"
+      *ngIf = "pincodeField.touched && !pincodeField.valid">Enter Pincode</div>
+      <div *ngIf="!pincodeField?.valid && (pincodeField?.dirty || pincodeField?.touched)" class="error">
+        <div *ngIf="pincodeField.errors.maxlength">
+          enter valid pincode
+        </div>
+    </div>
+    
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="check" name="check" ngModel>
+      <label class="form-check-label" for="check" >Agree to t&c</label>
+    </div>
+    <button type="submit" class="btn btn-primary"
+    [disabled]="!signInForm.valid ">Submit</button><br> <br>
+    <div class="col-auto">
+    <button type="reset" class="btn btn-danger"  (click) = resetsignInForm(signInForm)>Clear</button>
+    
+    

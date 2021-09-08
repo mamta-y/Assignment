@@ -1,0 +1,148 @@
+<p>second works!</p>
+<h1>parent component</h1>
+
+
+
+<!--<app-child name="{{ name }}"></app-child>
+
+<app-child name="{{ name }}"></app-child>
+<app-child name="{{ name }}"></app-child>-->
+
+
+
+
+
+
+
+
+
+<!--<app-third [login]="userlogin"></app-third> <!--child selector 
+<app-third (wishEvent) ="wish($event)"></app-third>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div [ngStyle]= "{'background-color':'yellow'}"><p style="text-align: center;">WELCOME TO OUR PAGE</p></div>
+<img [src]="path" alt="" width="70%" height="400px"  class="c" style="border: solid red;"><br><br>
+
+Enter name:<input type="text" [(ngModel)] ="names" required>
+
+Enter surname:<input type="text" [(ngModel)] ="lname" required >
+
+ <p>your name is : {{names }} {{ lname }}</p>
+
+
+Enter:  <input type="text" [(ngModel)] = "n" > <br><br>
+<button (click)= "show()">submit</button>
+<div *ngIf = "isCorrect" [ngStyle]= "{'background-color': back,'color':'white'}">Your answer was correct</div>
+<div *ngIf = "!isCorrect" [ngStyle]= "{'background-color': back,'color':'white'}">You answered wrong</div>
+<br><br>
+
+
+<div *ngFor="let number of numbers">
+    <div *ngIf="number % 2 == 0; else showOdd">
+      Even number <p>{{ number }}</p>
+    </div>
+    <ng-template #showOdd>
+      Odd number <p>{{ number }}</p>
+    </ng-template>
+  </div>
+<div *ngIf="movie"> {{ movie.nam }}</div>
+<ul
+ [ngSwitch]="hobbies">
+  <li *ngSwitchCase="'cricket'">
+    <ul>
+<li>bowler</li>
+<li>batting</li>
+  </ul>
+  <li *ngSwitchCase="'reading books'">
+    <ul>
+<li>horror </li>
+<li>comdey</li>
+  </ul>
+  <li *ngSwitchCase="'listening music'">
+    <ul>
+<li>romantic song</li>
+<li>party song</li>
+  </ul>
+  <li *ngSwitchDefault>
+    <ul>
+<li>Nothing </li>
+  </ul>
+</ul>
+
+<div [ngSwitch]="day">
+  <div *ngSwitchCase="'0'">sunday</div>
+  <div *ngSwitchCase="'1'">monday</div>
+  <div *ngSwitchCase="'2'">tuesday</div>
+  <div *ngSwitchCase="'3'">wednesday</div>
+  <div *ngSwitchCase="'4'">thursday</div>
+  <div *ngSwitchCase="'5'">friday</div>
+  <div *ngSwitchCase="'6'">saturday</div>
+
+  <div *ngSwitchDefault>This is Default</div>
+</div> 
+ <div>
+ <footer style="background:cornsilk; text-align: center; ">
+    <a [href]="href">facebook</a> <br>
+    <a [href]="href2">instagram</a><br>
+    <a [href]="href3">Twitter</a>
+ </footer>
+ </div>
+ 
+
+<!--DIRECTIVES
+<div *ngIf = "success" class="bg-danger">
+    user added successfully
+</div>-->
+<!--<div *ngIf = "success; else error" class="bg-danger">
+    user added successfully
+</div>
+<ng-template #error>
+user not found
+</ng-template>
+
+<ul>
+    <li *ngFor = "let empl of emp;index as i ">
+        {{ i }} employee is {{ emp.fname }} {{ emp.lname }} with id {{ emp.id }}
+
+    </li>
+
+
+</ul>
+<ul>
+    <li *ngFor = "let emp of emp;even as e;odd as o">
+  <div *ngIf ="e" class="bg-warning">Employee is {{ emp.fname }} {{ emp.lname }} with id {{ emp.id }}</div>
+  
+  <div *ngIf ="o" class="bg-secondary">Employee is {{ emp.fname }} {{ emp.lname }} with id {{ emp.id }}</div>
+  </li>
+  </ul>
+<!--EXAMPLE OF NGSTYLE AND NGCLASS 
+<div [ngStyle]= "{'background-color':'green'}">hello</div>
+
+<div [ngClass] = "'c1'">bye</div> -->
+
+<!--EXAMPLE OF ALL WHAT WE LEARNT-->
+<!--<div>add 12 and 13</div>
+<input type="text" [(ngModel)] = 'sum'>
+
+
+Input string : <input type='text' [(ngModel)]="num" />
+ 
+    <div [ngSwitch]="num">
+      <div *ngSwitchCase="'1'">One</div>
+      <div *ngSwitchCase="'2'">Two</div>
+      <div *ngSwitchCase="'3'">Three</div>
+      <div *ngSwitchCase="'4'">Four</div>
+      <div *ngSwitchCase="'5'">Five</div>
+      <div *ngSwitchDefault>This is Default</div>
+    </div> -->

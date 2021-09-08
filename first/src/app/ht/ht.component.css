@@ -1,0 +1,18 @@
+.h12{
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStuwWGFkTAz_ctSUhtCF5lq36LdqPEEbVu3A&usqp=CAU') ;
+    background-size: 100 % ;  
+    background-size: cover; 
+    height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+ 
+  
+}
+.first{
+    align-content: center;
+    text-align: center;
+}
+.cl{
+    background-color: #ff9933;
+}
