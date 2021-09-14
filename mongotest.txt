@@ -1,0 +1,184 @@
+                               QUERIES
+1] Waqtd the names of all the employees who are from chennai. 
+     db.emp1.find({"address.city":"chennai"},{name:1,_id:0}).pretty()
+2] Waqtd the address of all the employees. 
+    db.emp1.find({},{_id:0,address:1}).pretty()
+3] Waqt insert 10 employee details with at least 5 fields. 
+     db.student.insertMany([
+    {
+        _id:1,
+        name:"Rajee",
+        email:'rajee@gmail.com',
+        section:"A",
+        class:"BMS",
+        address:{
+            city:'Hyderabad',
+            pincode:546673
+        },
+        phone:[1111111111,2222222222]
+    },
+    {
+        _id:2,
+        name:"Mamta",
+        email:'mamta@gmail.com',
+        section:"B",
+          class:"BCOM",
+        address:{
+           
+            city:'Mumbai',
+            pincode:400005
+        },
+        phone:[3333333333]
+    },
+    {
+        _id:3,
+        name:"Prabhanjan",
+        email:'prabu@gmail.com',
+       section:"C",
+       class:"BSC",
+        address:{
+           
+            city:'Dharwad',
+            pincode:580007
+        },
+        phone:[4444444444,5555555555]
+    },
+    {
+        _id:4,
+        name:"Gurunath",
+        email:'guru@gmail.com',
+        section:"D",
+        class:"BSC(IT)",
+        address:{
+            
+            city:'Dharwad',
+            pincode:580007
+        },
+        phone:[6666666666]
+    },
+    {
+        _id:5,
+        name:"Madan",
+        email:'madan@gmail.com',
+        section:"E",
+        class:"BSC-MATH",
+        address:{
+            
+            city:'Hyderabad',
+            pincode:456743
+        },
+        phone:[9999999999]
+    },
+    {
+        _id:6,
+        name:"Gagan",
+        email:'gagan@gmail.com',
+       section:"A",
+       class:"BMS",
+        address:{
+           
+            city:'Mumbai',
+            pincode:400073
+        },
+        phone:[0000000000]
+    },
+{
+        _id:7,
+        name:"vishal",
+        email:'vishal@gmail.com',
+       section:"F",
+       class:"BAF",
+        address:{
+           
+            city:'Chennai',
+            pincode:400009
+        },
+        phone:[1234567890]
+    },
+{
+        _id:8,
+        name:"Anjali",
+        email:'anjali@gmail.com',
+       section:"B",
+       class:"BCOM",
+        address:{
+           
+            city:'Patna',
+            pincode:700873
+        },
+        phone:[2345600009]
+    },
+{
+        _id:9,
+        name:"komal",
+        email:'komal@gmail.com',
+       section:"D",
+       class:"BSC(IT)",
+        address:{
+           
+            city:'pune',
+            pincode:400056
+        },
+        phone:[3456789012]
+    },
+{
+        _id:10,
+        name:"chinnu",
+        email:'chinnu@gmail.com',
+       section:"E",
+       class:"BSC-MATH",
+        address:{
+           
+            city:'kerala',
+            pincode:400453
+        },
+        phone:[9876543210]
+    },
+])
+
+4] Waqtd the employee names who are either from bangalore or delhi.
+     db.emp1.find({$or:[{"address.city":"Bangalore"},{"address.city":"Delhi"}]})
+
+5] .Waqtd the employee door number who is working in department number 40.
+   db.emp1.find({dept:40},{"address.dno":1})
+
+6] Waqt increment the salary of all the employees by 800.
+    db.emp1.update({},{$inc:{sal:800}},{multi:true})
+
+7] Waqt update the city of all the employees to bangalore.  
+   db.emp1.update({},{$set:{"address.city":"bangalore"}},{multi:true})
+
+8]  .Waqt update the salary of employee to 20000 whose _id is 1234
+    db.emp1.update({_id:1234},{$set:{salary:20000}})
+
+9] Waqtd the city and names of employees whose salary is above 10000 and below 80000 
+    db.emp.find({
+    $and:
+    [
+    {salary:{$gt:10000}},
+    {salary:{$lt:80000}}]},
+    {"address.city":1,name:1})
+10] Waqt remove department number field who have salary more than 20000 
+    db.emp.update({salary:{$gt:20000}},{$unset:{dept:""}},{multi:true})
+
+11] Waqtd the lowest salary in each department using aggregation
+   db.emp.aggregate([{$group:{_id:{depart:"$dept"},sal:{$min:"$salary"}}}])
+
+12] Waqtd the name of highest paid employee in each city using aggregation  
+    db.emp1.aggregate([{$group:{_id:{city:"$address.city",name:"$name"},sal:{$max:"$salary"}}},{$sort:{sal:-1}},{$limit:3}])
+
+13] .Waqt delete the employee details who are from Jaipur
+     db.emp.remove({"address.city":"Jaipur"})
+
+14]  .Waqtd the average salary paid in each department using aggregation.
+    db.emp1.aggregate([{$group:{_id:{depart:"$dept"},avgsal:{$avg:"$salary"}}}])
+
+15] Waqtd the address of the employess whose salary is above 5000 and below 15000
+    db.emp.find({
+    $and:
+    [
+    {salary:{$gt:5000}},
+    {salary:{$lt:15000}}]},
+    {"address":1})
+16] Waqtd the lowest paid department using aggregation 
+   db.emp.aggregate([{$group:{_id:{depart:"$dept"},sumofsal:{$sum:"$salary"}}},{$sort:{sumofsal:1}},{$limit:1}])
